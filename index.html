@@ -5,22 +5,35 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
-        <script src="js/fruits_and_veggies_test.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+        <script src="js/fruits_and_veggies.js"></script>
         <script src="js/app.js"></script>
     </head>
-    <body>
+    <body ng-app="F&V" ng-controller="mainCtrl">
         <div class="container">
             <h1>Fruit and Veggies</h1>
             <div class="row">
                 <div class="col-sm-4">
-                    col 1
+                    Fruits
+                    <div ng-repeat="fruit in fruits track by $index" class="well">
+                      {{fruit}}
+                      <button ng-click="moveBackRight($index)"class="btn btn-primary"> > </button>
+                    </div>
                 </div>
                 <div class="col-sm-4">
-                    col 2
+                    Pool (Fruits & Veggies)
+                    <div ng-repeat="food in foods track by $index" class="well">
+                    <button ng-click="moveLeft($index)" class="btn btn-primary"> < </button>
+                    {{food}}
+                    <button ng-click="moveRight($index)" class="btn btn-primary"> > </button>
+                    </div>
                 </div>
                 <div class="col-sm-4">
-                    col 3
+                    Veggies
+                    <div ng-repeat="veggie in veggies track by $index" class="well">
+                    <button ng-click="moveBackLeft($index)" class="btn btn-primary">< </button>
+                    {{veggie}}
+                    </div>
                 </div>
             </div>
         </div>
